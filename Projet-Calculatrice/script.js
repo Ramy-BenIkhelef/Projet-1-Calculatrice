@@ -32,8 +32,8 @@ do{
     }while ((choix!=1 && choix!=2 && choix!=3 && choix!=4));
 
     do{
-    firstNumber = parseInt(prompt("écriver votre premier nombre pour votre opération en chiffre"));
-    secondNumber = parseInt(prompt("écriver votre deuxième nombre pour votre opération en chiffre"));
+    firstNumber = parseInt(prompt("Votre permier nombre :"));
+    secondNumber = parseInt(prompt("Votre deuxième nombre :"));
     }while(isNaN(firstNumber || secondNumber));
 
     try{
