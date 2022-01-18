@@ -26,15 +26,16 @@ function Division(nombreA, nombreB){
 
 
 do{
-    do {
-    choix = parseInt(prompt("Choisisser une valeur cité ci-dessous : \n 1: Addition \n 2: Soustraction  \n 3: Multiplication \n 4: Division"));
+    // do {
+    // choix = parseInt(prompt("Choisisser une valeur cité ci-dessous : \n 1: Addition \n 2: Soustraction  \n 3: Multiplication \n 4: Division"));
     
-    }while ((choix!=1 && choix!=2 && choix!=3 && choix!=4));
+    // }while ((choix!=1 && choix!=2 && choix!=3 && choix!=4));
 
     do{
     firstNumber = parseInt(prompt("Votre permier nombre :"));
+    choix = parseInt(prompt("Choisisser une valeur cité ci-dessous : \n 1: Addition \n 2: Soustraction  \n 3: Multiplication \n 4: Division"));
     secondNumber = parseInt(prompt("Votre deuxième nombre :"));
-    }while(isNaN(firstNumber || secondNumber));
+    }while(isNaN(firstNumber || secondNumber) && (choix!=1 && choix!=2 && choix!=3 && choix!=4));
 
     try{
     switch (choix) {
