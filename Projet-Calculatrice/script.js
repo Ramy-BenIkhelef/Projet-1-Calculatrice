@@ -4,6 +4,7 @@ let secondNumber;
 let resultat;
 let restart = false;
 
+
 function Addition(nombreA, nombreB){
     return nombreA + nombreB;
 };
