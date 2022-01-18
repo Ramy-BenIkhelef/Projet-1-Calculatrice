@@ -5,53 +5,55 @@ let resultat;
 do {
     choix = parseInt(prompt("Choisisser une valeur cité ci-dessous : \n 1: Addition \n 2: Soustraction  \n 3: Multiplication \n 4: Division"));
     console.log(choix);
-    function calculatrice(){
-    if ((isNaN(choix) || choix<1 || choix>4) )
-    {
-        alert("veuiller inscrire un chiffre proposé dans la boite de dialogue");
-    }
+    
+}while (choix!=1 && choix!=2 && choix!=3 && choix!=4);
+
+do{
     firstNumber = parseInt(prompt("écriver votre premier nombre pour votre opération en chiffre"));
     secondNumber = parseInt(prompt("écriver votre deuxième nombre pour votre opération en chiffre"));
+}while(isNaN(firstNumber || secondNumber));
 
-    if(isNaN(firstNumber || secondNumber)){
-        alert("un chiffre est demander pour faire l'opération");
+try{
+    switch (choix) {
+    case 1:
+        resultat = Addition(firstNumber, secondNumber)
+        break;
+        case 2:
+        resultat = Soustraction(firstNumber, secondNumber)
+        break;
+        case 3:
+        resultat = Multiplication(firstNumber, secondNumber)
+        break;
+        case 4:
+        resultat = Division(firstNumber, secondNumber)
+        break;
+
+    default:
+        throw new Error("Une erreur est survenue");
+        
+}
+alert("Voicie le resultat "+ resultat);
+}
+catch(error){
+    alert(error);
+}
+function Addition(nombreA, nombreB){
+    return nombreA + nombreB;
+};
+
+function Soustraction(nombreA, nombreB){
+    return nombreA - nombreB;
+};
+
+function Multiplication(nombreA, nombreB){
+    return nombreA * nombreB;
+};
+
+function Division(nombreA, nombreB){
+    if (nombreB == 0) {
+        throw new Error("impossible de diviser par 0");
     }
-
-    if(choix=1){
-        Addition();
-    }else if(choix=2){
-        Soustraction();
-    }else if(choix=3){
-        Multiplication();
-    }else if(choix=4){
-        do {
-            alert("attention de choisir le deuxième nombre supérieur à 0")
-        } while (secondNumber = 0);
-        Division();
-    };
-
-};
-calculatrice();
-} while (isNaN(choix) || choix<1 || choix>4 || !isNaN(resultat) || isNaN(firstNumber ||secondNumber));
-
-function Addition(){
-    resultat = firstNumber + secondNumber;
-    alert("le resultat de votre opération est " + resultat);
-};
-
-function Soustraction(){
-    resultat = firstNumber - secondNumber;
-    alert("le resultat de votre opération est " + resultat);
-};
-
-function Multiplication(){
-    resultat = firstNumber * secondNumber;
-    alert("le resultat de votre opération est " + resultat);
-};
-
-function Division(){
-    resultat = firstNumber / secondNumber;
-    alert("le resultat de votre opération est " + resultat);
+    return nombreA / nombreB;
 };
 
 
