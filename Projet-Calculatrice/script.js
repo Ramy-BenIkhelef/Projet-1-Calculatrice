@@ -2,18 +2,40 @@ let choix;
 let firstNumber;
 let secondNumber;
 let resultat;
-do {
-    choix = parseInt(prompt("Choisisser une valeur cité ci-dessous : \n 1: Addition \n 2: Soustraction  \n 3: Multiplication \n 4: Division"));
-    console.log(choix);
-    
-}while (choix!=1 && choix!=2 && choix!=3 && choix!=4);
+let restart = false;
+
+function Addition(nombreA, nombreB){
+    return nombreA + nombreB;
+};
+
+function Soustraction(nombreA, nombreB){
+    return nombreA - nombreB;
+};
+
+function Multiplication(nombreA, nombreB){
+    return nombreA * nombreB;
+};
+
+function Division(nombreA, nombreB){
+    if (nombreB == 0) {
+    throw new Error("impossible de diviser par 0");
+    }
+    return nombreA / nombreB;
+};
+
 
 do{
+    do {
+    choix = parseInt(prompt("Choisisser une valeur cité ci-dessous : \n 1: Addition \n 2: Soustraction  \n 3: Multiplication \n 4: Division"));
+    
+    }while ((choix!=1 && choix!=2 && choix!=3 && choix!=4));
+
+    do{
     firstNumber = parseInt(prompt("écriver votre premier nombre pour votre opération en chiffre"));
     secondNumber = parseInt(prompt("écriver votre deuxième nombre pour votre opération en chiffre"));
-}while(isNaN(firstNumber || secondNumber));
+    }while(isNaN(firstNumber || secondNumber));
 
-try{
+    try{
     switch (choix) {
     case 1:
         resultat = Addition(firstNumber, secondNumber)
@@ -31,30 +53,18 @@ try{
     default:
         throw new Error("Une erreur est survenue");
         
-}
-alert("Voicie le resultat "+ resultat);
-}
-catch(error){
-    alert(error);
-}
-function Addition(nombreA, nombreB){
-    return nombreA + nombreB;
-};
-
-function Soustraction(nombreA, nombreB){
-    return nombreA - nombreB;
-};
-
-function Multiplication(nombreA, nombreB){
-    return nombreA * nombreB;
-};
-
-function Division(nombreA, nombreB){
-    if (nombreB == 0) {
-        throw new Error("impossible de diviser par 0");
     }
-    return nombreA / nombreB;
-};
+    alert("Voicie le resultat "+ resultat);
+ 
+
+    }
+    catch(error){
+        alert(error);
+    }
+    restart = confirm("Voulez vous refaire le calcule ?");
+}while(restart);
+
+
 
 
 
